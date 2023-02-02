@@ -10,7 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table (name = "tb_produto")
-public class CategoriaModel {
+public class ProdutoModel {
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
