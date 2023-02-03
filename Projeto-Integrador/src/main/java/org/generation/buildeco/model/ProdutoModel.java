@@ -1,12 +1,18 @@
 package org.generation.buildeco.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table (name = "tb_produto")
@@ -30,6 +36,10 @@ public class ProdutoModel {
 	
 	@UpdateTimestamp
 	private LocalDateTime data;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private CategoriaModel categoria;
 
 
 	public Long getId() {
@@ -100,7 +110,5 @@ public class ProdutoModel {
 	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
-	
-	
 	
 }
