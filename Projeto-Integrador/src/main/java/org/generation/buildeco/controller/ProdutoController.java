@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-@RestController
-@RequestMapping("/produtos")
+
+@RequestMapping("/produto")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProdutoController {
 

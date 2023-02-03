@@ -33,9 +33,10 @@ public class CategoriaModel {
 	@Size (min = 1, max = 100, message = "O campo nome preco conter no minimo 05 caracteres" )
 	public Double preco;
 	
-	@OneToMany (mappedBy = "nome", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("nome")
+	@OneToMany (mappedBy = "categoria", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("categoria")
 	private List<ProdutoModel> produto;
+	
 	
 
 	public List<ProdutoModel> getProduto() {
