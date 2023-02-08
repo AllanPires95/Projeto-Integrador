@@ -11,33 +11,26 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="tb_categoria")
+@Table(name = "tb_categoria")
 public class CategoriaModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotBlank(message = "O atributo nome de Categoria é Obrigátorio!")
-	@Size(min = 1, max = 100, message ="O atributo nome de Categoria deve conter no mínimo 100 e no máximo 100 caracteres")
+	@Size(min = 1, max = 100, message = "O atributo nome de Categoria deve conter no mínimo 100 e no máximo 100 caracteres")
 	private String nome;
-	
+
 	@NotBlank(message = "O atributo Generico ou Original é Obrigátorio!")
-	@Size(min = 1, max = 100, message ="O atributo Generico ou Original deve conter no mínimo 100 e no máximo 100 caracteres")
+	@Size(min = 1, max = 100, message = "O atributo Generico ou Original deve conter no mínimo 100 e no máximo 100 caracteres")
 	private String descricao;
-	
-	@NotBlank (message = "O campo preco é obrigatório!")
-	@Size (min = 1, max = 100, message = "O campo nome preco conter no minimo 05 caracteres" )
-	public Double preco;
-	
-	@OneToMany (mappedBy = "categoria", cascade = CascadeType.REMOVE)
+
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
 	private List<ProdutoModel> produto;
-	
-	
 
 	public List<ProdutoModel> getProduto() {
 		return produto;
@@ -71,12 +64,5 @@ public class CategoriaModel {
 		this.descricao = descricao;
 	}
 
-	public Double getPreco() {
-		return preco;
-	}
 
-	public void setPreco(Double preco) {
-		this.preco = preco;
-	} 
-	
 }

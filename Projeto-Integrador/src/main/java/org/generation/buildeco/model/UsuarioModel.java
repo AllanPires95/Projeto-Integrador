@@ -1,7 +1,6 @@
 package org.generation.buildeco.model;
 
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -70,5 +69,14 @@ public class UsuarioModel {
 		this.senha = senha;
 	}
 
+	public List<ProdutoModel> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<ProdutoModel> produto) {
+		this.produto = produto;
+	}
+	
+	
 }
 
